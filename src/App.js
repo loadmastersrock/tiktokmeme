@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleInputChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSearch = () => {
+    // Here, we'll later add logic to fetch TikTok accounts
+    console.log("Searching for:", searchTerm);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>TikTok Meme Account Finder</h1>
+      <input 
+        type="text" 
+        placeholder="Enter keyword or username" 
+        value={searchTerm} 
+        onChange={handleInputChange} 
+      />
+      <button onClick={handleSearch}>Search</button>
     </div>
   );
 }
 
 export default App;
+
